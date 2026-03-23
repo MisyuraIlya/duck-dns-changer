@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug cmd (no Air)",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/cmd",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "name": "Attach to Air (Delve 2345)",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      "debugAdapter": "legacy",
+      "preLaunchTask": "air: debug",
+      "postDebugTask": "air: stop",
+      "host": "127.0.0.1",
+      "port": 2345,
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

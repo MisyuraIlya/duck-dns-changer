@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "air: debug",
+      "type": "shell",
+      "command": "air -c .air.toml",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^(.*)$",
+          "file": 1,
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "API server listening at: 127\\.0\\.0\\.1:2345"
+        }
+      }
+    },
+    {
+      "label": "air: stop",
+      "type": "shell",
+      "command": "pkill -f \"[a]ir -c .air.toml\" || true",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Environment files (keep secrets out of git)
+.env
+.env.*
+!.env.example
+
+# Air / local runtime artifacts
+tmp/
+__debug_bin*
+
+# Go build and test artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.out
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/settings.json
