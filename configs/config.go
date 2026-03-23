@@ -1,7 +1,9 @@
 package configs
 
 import (
+	"errors"
 	"fmt"
+	"os"
 
 	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
@@ -16,7 +18,7 @@ func New() (Config, error) {
 	var config Config
 
 	err := godotenv.Load(".env")
-	if err != nil {
+	if err != nil && !errors.Is(err, os.ErrNotExist) && !os.IsNotExist(err) {
 		return config, fmt.Errorf("godotenv.load: %w", err)
 	}
 

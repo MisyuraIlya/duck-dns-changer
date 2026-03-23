@@ -1,0 +1,16 @@
+[Unit]
+Description=DuckDNS updater
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/duck-dns-changer/duck-dns-changer.env
+ExecStart=/usr/local/bin/duck-dns-changer
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
